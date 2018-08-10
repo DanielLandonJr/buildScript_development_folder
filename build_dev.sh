@@ -58,8 +58,8 @@ mkdir .\\dev\\js\\lib
 echo "Creating New dev/modules Folder"
 mkdir .\\dev\\modules
 
-echo "Creating New dev/sass Folder"
-mkdir .\\dev\\sass
+echo "Creating New dev/scss Folder"
+mkdir .\\dev\\scss
 
 
 
@@ -94,8 +94,8 @@ touch dev/js/lib/.nomedia
 echo "Creating .nomedia Files For dev/modules Folder"
 touch dev/modules/.nomedia
 
-echo "Creating .nomedia Files For dev/sass Folder"
-touch dev/sass/.nomedia
+echo "Creating .nomedia Files For dev/scss Folder"
+touch dev/scss/.nomedia
 
 
 
@@ -111,25 +111,25 @@ echo ''
 
 echo "Building dev/index.html File"
 echo "<!DOCTYPE html>
-<html lang="en">
+<html lang=\"en\">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Welcome To My Portfolio</title>
+  <meta charset=\"UTF-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+  <title>Template</title>
 
   <!-- one or the other -->
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/main.min.css">
+  <link rel=\"stylesheet\" href=\"./css/main.css\">
+  <link rel=\"stylesheet\" href=\"./css/main.min.css\">
 </head>
 
 <body>
 
 
   <!-- one or the other -->
-  <script src="./js/main.js"></script>
-  <script src="./js/main.min.js"></script>
+  <script src=\"./js/main.js\"></script>
+  <script src=\"./js/main.min.js\"></script>
 </body>
 
 </html>
@@ -137,9 +137,9 @@ echo "<!DOCTYPE html>
 
 
 
-# ~~~~~~~~~~ dev/sass/main.scss ~~~~~~~~~~
+# ~~~~~~~~~~ dev/scss/main.scss ~~~~~~~~~~
 
-echo "Building dev/sass/main.scss File"
+echo "Building dev/scss/main.scss File"
 echo "// globals and mixins
 
 @import 'globals';
@@ -149,23 +149,23 @@ echo "// globals and mixins
 // OTHER SCSS FILES GO HERE
 
 
-// responsiveness THIS SHOULD BE LAST
+// responsive THIS SHOULD BE LAST
 
 @import 'responsive';
-" >> dev/sass/main.scss
+" >> dev/scss/main.scss
 
 
 
-# ~~~~~~~~~~ dev/sass/_globals.scss ~~~~~~~~~~
+# ~~~~~~~~~~ dev/scss/_globals.scss ~~~~~~~~~~
 
-echo "Building dev/sass/_globals.scss File"
-echo "/* ~~~~~~~~~~~~~~~ globals ~~~~~~~~~~~~~~~ */" >> dev/sass/_globals.scss
+echo "Building dev/scss/_globals.scss File"
+echo "/* ~~~~~~~~~~~~~~~ globals ~~~~~~~~~~~~~~~ */" >> dev/scss/_globals.scss
 
 
 
-# ~~~~~~~~~~ dev/sass/_mixins.scss ~~~~~~~~~~
+# ~~~~~~~~~~ dev/scss/_mixins.scss ~~~~~~~~~~
 
-echo "Building dev/sass/_mixins.scss File"
+echo "Building dev/scss/_mixins.scss File"
 echo "/* ~~~~~~~~~~~~~~~ mixins & functions ~~~~~~~~~~~~~~~ */
 
 // functions
@@ -206,13 +206,13 @@ echo "/* ~~~~~~~~~~~~~~~ mixins & functions ~~~~~~~~~~~~~~~ */
     @content;
   }
 }
-" >> dev/sass/_mixins.scss
+" >> dev/scss/_mixins.scss
 
 
 
-# ~~~~~~~~~~ dev/sass/_responsivness.scss ~~~~~~~~~~
+# ~~~~~~~~~~ dev/scss/_responsive.scss ~~~~~~~~~~
 
-echo "Building dev/sass/_responsivness.scss File"
+echo "Building dev/scss/_responsive.scss File"
 echo "/*
 
 */
@@ -246,7 +246,7 @@ echo "/*
 /* ~~~~~~~~~~~~~~~ responsive end ~~~~~~~~~~~~~~~ */
 /*
 */
-" >> dev/sass/_responsivness.scss
+" >> dev/scss/_responsive.scss
 
 
 
@@ -311,25 +311,34 @@ echo -e \"\033[1;33m=> => => \033[1;95mCOPY FILES STARTED \033[1;33m<= <= <=\033
 echo
 
 echo Copying Images from dev/assets/img to dist/assets/img
-cp -rf dev/assets/img/*.* dist/assets/img
+# cp -rf dev/assets/img/*.* dist/assets/img
+
+# check if the file exists...if it does then copy otherwise skip it
+[[ -e dev/assets/img/*.* ]] && cp -rf dev/assets/img/*.* dist/assets/img
 
 echo Copying Audio from dev/assets/audio to dist/assets/audio
-cp -rf dev/assets/audio/*.* dist/assets/audio
+# cp -rf dev/assets/audio/*.* dist/assets/audio
+[[ -e dev/assets/audio/*.* ]] && cp -rf dev/assets/audio/*.* dist/assets/audio
 
 echo Copying Video from dev/assets/video to dist/assets/video
-cp -rf dev/assets/video/*.* dist/assets/video
+# cp -rf dev/assets/video/*.* dist/assets/video
+[[ -e dev/assets/video/*.* ]] && cp -rf dev/assets/video/*.* dist/assets/video
 
 echo Copying CSS Lib from dev/css/lib to dist/css/lib
-cp -rf dev/css/lib/*.* dist/css/lib
+# cp -rf dev/css/lib/*.* dist/css/lib
+[[ -e dev/css/lib/*.* ]] && cp -rf dev/css/lib/*.* dist/css/lib
 
 echo Copying JS Lib from dev/js/lib to dist/js/lib
-cp -rf dev/js/lib/*.* dist/js/lib
+# cp -rf dev/js/lib/*.* dist/js/lib
+[[ -e dev/js/lib/*.* ]] && cp -rf dev/js/lib/*.* dist/js/lib
 
 echo Copying Pages from dev/modules to dist/modules
-cp -rf dev/modules/*.* dist/modules
+# cp -rf dev/modules/*.* dist/modules
+[[ -e dev/modules/*.* ]] && cp -rf dev/modules/*.* dist/modules
 
 echo Copying Index from dev to dist
-cp -rf dev/index.html dist
+# cp -rf dev/index.html dist
+[[ -e dev/index.html ]] && cp -rf dev/index.html dist
 
 echo
 echo -e \"\033[1;33m=> => => \033[1;95mMINIFY ASSETS STARTED \033[1;33m<= <= <=\033[0m\"
@@ -370,7 +379,7 @@ echo
 " >> dev/bin/build_dist.sh
 
 echo ''
-echo -e "\033[1;95m=> => => \033[1;33mbuild_dist.sh must be ran from the root of the project inorder to work properly. use dev/bin/build_dist.sh false false ... refer to build_dist.sh for bool values/useage \033[1;95m<= <= <=\033[0m"
+echo -e "\033[1;95m=> => => \033[1;33mbuild_dist.sh must be ran from the root of the project in order to work properly. use dev/bin/build_dist.sh false false ... refer to build_dist.sh for bool values/useage \033[1;95m<= <= <=\033[0m"
 echo ''
 
 
