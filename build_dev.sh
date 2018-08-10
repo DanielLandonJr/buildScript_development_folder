@@ -258,7 +258,7 @@ echo "
 
 # first arg is for minify. if set to true the css/js will be obsfucated...if false the files will still be minified but readable.
 
-# second arg is for gh-pages. if true will deploy project to gh-pages on github. Must have a valid "homepage" entry in package.json file
+# second arg is for gh-pages. if true will deploy project to gh-pages on github. Must have a valid \"homepage\" entry in package.json file
 
 clear
 
@@ -347,16 +347,16 @@ echo
 if (\$1 = true)
 then
 	echo Minifying CSS w/obsfucation
-	uglifycss dev/css/main.css > dist/css/main.min.css
+	cleancss dev/css/main.css -o dist/css/main.min.css
 	echo ''
 	echo Minifying JavaScript w/obsfucation
-	uglifyjs dev/js/main.js > dist/js/main.min.js
+	uglifyjs dev/js/main.js -o dist/js/foo.min.js -c -m --mangle-props
 else
 	echo Minifying CSS
-	uglifycss dev/css/main.css > dist/css/main.min.css
+	cleancss dev/css/main.css -o dist/css/main.min.css
 	echo ''
 	echo Minifying JavaScript
-	uglifyjs dev/js/main.js > dist/js/main.min.js
+	uglifyjs dev/js/main.js -o dist/js/main.min.js
 fi
 
 if (\$2 = true)
