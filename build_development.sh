@@ -250,9 +250,9 @@ echo "/*
 
 
 
-# ~~~~~~~~~~ dev/bin/build_dist.sh ~~~~~~~~~~
+# ~~~~~~~~~~ dev/bin/build_distribution.sh ~~~~~~~~~~
 
-echo "Building dev/bin/build_dist.sh File"
+echo "Building dev/bin/build_distribution.sh File"
 echo "
 #!/bin/bash
 
