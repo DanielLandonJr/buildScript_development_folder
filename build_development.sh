@@ -376,10 +376,13 @@ date
 echo
 echo -e \"\033[1;95m=> => => \033[1;33mCOMPLETED DISTRIBUTION FOLDER BUILD \033[1;95m<= <= <=\033[0m\"
 echo
-" >> dev/bin/build_dist.sh
+" >> dev/bin/build_distribution.sh
 
 echo ''
-echo -e "\033[1;95m=> => => \033[1;33mbuild_dist.sh must be ran from the root of the project in order to work properly. use dev/bin/build_dist.sh false false ... refer to build_dist.sh for bool values/useage \033[1;95m<= <= <=\033[0m"
+echo -e "\033[1;95m=> => => \033[1;33mNOTE: Each time you run build_development.sh it will delete the original dev folder and create a new one...it will DELETE all of your existing work. \033[1;95m<= <= <=\033[0m"
+
+echo ''
+echo -e "\033[1;95m=> => => \033[1;33mNOTE: In order for build_distribution.sh to run correctly you must create a script entry in package.json. Make sure to include bool values for obsfucation of css/js and local or remote deploy. \033[1;95m<= <= <=\033[0m"
 echo ''
 
 
