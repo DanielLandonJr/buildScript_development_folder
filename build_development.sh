@@ -385,6 +385,21 @@ echo ''
 echo -e "\033[1;95m=> => => \033[1;33mNOTE: In order for build_distribution.sh to run correctly you must create a script entry in package.json. Make sure to include bool values for obsfucation of css/js and local or remote deploy. \033[1;95m<= <= <=\033[0m"
 echo ''
 
+echo -e "\033[1;95m=> => => \033[1;33mNOTE: The following packages must be added, using npm, to your project; gh-pages, node-sass, uglify-js, clean-css-cli. \033[1;95m<= <= <=\033[0m"
+echo ''
+
+echo -e "\033[1;95m=> => => \033[1;33mNOTE: The following scripts must be added to package.json;  \033[1;95m<= <= <=\033[0m"
+echo ''
+
+echo -e "\033[1;95m=> => => \033[1;33m\"deployLocal\": \"bash dev/bin/build_distribution.sh false false\"  \033[1;95m<= <= <=\033[0m"
+echo ''
+
+echo -e "\033[1;95m=> => => \033[1;33m\"deployRemote\": \"bash dev/bin/build_distribution.sh false true\"  \033[1;95m<= <= <=\033[0m"
+echo ''
+
+echo -e "\033[1;95m=> => => \033[1;33m\"echo \\\"SASS Started\\\" && node-sass -w dev/scss/ -o dev/css/main.css --recursive\"  \033[1;95m<= <= <=\033[0m"
+echo ''
+
 
 
 # ~~~~~~~~~~ end builds ~~~~~~~~~~
